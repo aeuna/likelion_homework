@@ -1,0 +1,45 @@
+{% load static %}
+<link rel="stylesheet" href="../static/team.css">
+<div class="container">
+
+    <!-- {% for i in n1%}
+    <h1>{{name.i}}</h1>
+
+{% endfor %} -->
+    <br>
+    <!-- {{ name|slice:"0:5" }} -->
+    <br>
+    <div class="content">
+        <br>
+        <h2>{{name}}</h2>
+        <br>
+        {% for one in team1 %}
+        <span class="name">{{one}}&#9752;</span>
+        {% endfor %}
+        <br>
+        {% for one in team2 %}
+        <span class="name">{{one}}&#9752;</span>
+        {% endfor %}
+        <br>
+        {% for one in team3 %}
+        <span class="name">{{one}}&#9752;</span>
+        {% endfor %}
+        <br>
+        {% for one in team4 %}
+        <span class="name">{{one}}&#9752;</span>
+        {% endfor %}
+        <br>
+        {% for one in team5 %}
+        <span class="name">{{one}}&#9752;</span>
+        {% endfor %}
+        <br>
+        <br>
+        <center>
+            <span>
+            &#11088;
+            <a onClick="window.location.reload()" style="cursor: pointer;">[ 새로 고침 ]</a>
+            &#11088;
+            </span>
+        </center>
+    </div>
+</div>
