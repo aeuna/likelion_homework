@@ -1,0 +1,58 @@
+
+{% load static %}
+
+<head> 
+    <link rel="stylesheet" href="../static/introduction.css">
+</head>
+
+{% for youtube in youtube.all%}
+<div class="container">
+    <div class="parent">
+        <div class="first">
+            <h1>{{youtube.channel_name}}</h1>
+        </div>
+        <div class="first">
+            <span>크리에이터 이름:</span>
+            <span>{{youtube.creator_name}}</span>
+        </div>
+        <div class="first">
+            <span>나의 선호도:</span>
+            {% if youtube.popularity == 1 %}
+            <span>&#11088;</span>
+            {% endif %}
+            {% if youtube.popularity == 2 %}
+            <span>&#11088;&#11088;</span>
+            {% endif %}
+            {% if youtube.popularity == 3 %}
+            <span>&#11088;&#11088;&#11088;</span>
+            {% endif %}
+            {% if youtube.popularity == 4 %}
+            <span>&#11088;&#11088;&#11088;&#11088;</span>
+            {% endif %}
+            {% if youtube.popularity == 5 %}
+                <span>&#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            {% endif %}   
+        </div>
+        <div class="first">
+            {% if youtube.onair == True %}
+            <div class="onair_T">
+                ON-AIR
+            </div>
+            {% endif %}
+            {% if youtube.onair == False %}
+            <div class="onair_F">
+                ON-AIR
+            </div>
+            {% endif %}
+        </div>
+        <div class="first">
+            <span>구독자 수:</span>
+            <span>{{youtube.followers}}</span>
+        </div> 
+    </div>
+    <iframe src= "{{youtube.link1}}" style="width:31%; height:300px"></iframe>
+    <iframe src= "{{youtube.link2}}" style="width:31%; height:300px"></iframe>
+    <iframe src= "{{youtube.link3}}" style="width:31%; height:300px"></iframe>
+</div>
+<br><br>
+{% endfor %}
