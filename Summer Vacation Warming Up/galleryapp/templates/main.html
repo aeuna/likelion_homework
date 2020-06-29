@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food_gallery</title>
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+
+<body>
+    <div class="nav">
+        <a href="{% url 'create' %}">추가</a>
+    </div>
+    <div class="container">
+        <div class="title">
+            &#128293;Food gallery&#128293;
+        </div>
+        {% for one in gallery.all%}
+            <div class="picture">
+                <div class="test">
+                    <div class="img">
+                        {% if one.photo %}
+                            <img src="{{one.photo.url}}" width="95%" height="300px">
+                        {% endif %}
+                    </div>
+                    <div class="content">
+                        <h2>{{one.gallery_name}}</h2>
+                        <p>{{one.gallery_date}}</p>
+                        <div style="overflow:auto;">
+                            {{one.summary}}
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="{% url 'update' one.id %}">수정하기</a>
+                    </div>
+                    <div class="button">
+                        <a href="{% url 'delete' one.id %}">삭제하기</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

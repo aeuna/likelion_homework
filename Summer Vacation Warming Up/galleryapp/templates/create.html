@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food_gallery</title>
+    <link rel="stylesheet" href="../static/update.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container_content">
+            <form action="{% url 'create' %}" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <p>사진 명: </p>
+                <input type="text" name="picture_name" required>
+                <p>사진: </p>
+                <input type="file" name="picture_img" required>
+                <p>사진 설명: </p>
+                <textarea cols=40 rows=3 name="picture_summary" required></textarea>
+                <div class="button">
+                    <input type="submit" value="추가하기">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
