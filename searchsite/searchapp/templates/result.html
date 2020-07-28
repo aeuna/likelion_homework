@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/result.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="headbar">
+        <div class="head">
+            <a href ="{% url 'index'%}"><h1>search_site</h1></a>
+        </div>
+        <div class="head">
+            <form action="{% url 'result' %}" method='GET'>
+                <select name="type">
+                    <option value="all">전체</option>
+                    <option value="title">제목</option>
+                    <option value="text">내용</option>
+                    <option value="author">글쓴이</option>
+                </select>
+                {% csrf_token %}
+                <input type="text" name="query" value="{{query}}" placeholder="검색해보자">
+            </form>
+        </div>
+        <div class="head">
+            <h2>{{user}}님 안녕하세요!!</h2>
+        </div>
+    </div>
+    <div class="contents">
+        <p>"{{query}}"에 대한 결과는 다음과 같습니다...</p>
+        {% if result_num > 0 %}
+        <p>{{result_num}}개의 검색결과가 있습니다. </p>
+        <br>
+        {% for post in BlogPosts%}
+            <p>제목: {{post.title}}</p>
+            <p>내용: {{post.text}}</p>
+            <p>글쓴이: {{post.author}}</p>
+        {% endfor %}
+        {%else%}
+        <p>{{query}}에 대한 검색결과가 없습니다. </p>
+        {% endif %}
+    </div>
+</body>
+</html>
