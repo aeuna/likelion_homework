@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FindWebSite</title>
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>&#10084;당신의 궁금한 영화인의 정보와 영화를 찾아보자!!&#10084;</h1>
+        <h3>아래 검색 창에서 궁금한 영화인의 이름을 입력해주세요!!</h3>
+      </div>
+      <div class="actorSearch">
+        <form
+          name="actorNameForm"
+          class="actorNameForm"
+          action="http://127.0.0.1:8000/"
+        >
+          <input type="text" name="actorNameInput" class="actorNameInput" />
+          <input
+            type="button"
+            onclick="clickedSearchBtn();"
+            value="Find"
+            class="actorNameInput"
+          />
+        </form>
+      </div>
+      <div class="contents"></div>
+    </div>
+    <script src="{% static 'js/home.js' %}" type="text/javascript"></script>
+  </body>
+</html>
